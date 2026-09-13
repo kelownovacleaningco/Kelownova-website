@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us &amp; Get a Free Quote | Kelownova Cleaning Co. | Kelowna, BC</title>
-<meta name="description" content="Request a free, no-obligation cleaning quote from Kelownova Cleaning Co. in Kelowna, BC. Tell us about your property and we'll get back to you quickly.">
+<title>Get a Free Cleaning Quote | Kelownova Cleaning Co.</title>
+<meta name="description" content="Request a free, no-obligation cleaning quote in Kelowna, BC. Tell us about your property and we'll get back to you quickly.">
 <link rel="canonical" href="https://www.kelownovacleaningco.com/contact.html">
 
 <meta property="og:type" content="website">
@@ -24,6 +24,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.kelownovacleaningco.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://www.kelownovacleaningco.com/contact.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +58,7 @@
     <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
+      <a href="index.html#our-work">Our Work</a>
       <a href="about.html">About</a>
       <a href="index.html#how-it-works">How It Works</a>
       <a href="index.html#reviews">Reviews</a>
@@ -100,19 +121,7 @@
         </div>
 
         <div class="reveal">
-          <form class="quote-form" id="quote-form" action="#" method="POST" novalidate>
-            <!--
-              DEPLOYMENT NOTE FOR OWNER:
-              This form currently just shows a confirmation message in the browser (see script.js) —
-              it does not send data anywhere yet. To actually receive submissions for free, sign up
-              at a service such as Formspree (formspree.io) or Web3Forms (web3forms.com), then:
-                1. Replace the action="#" above with the endpoint they give you.
-                2. Change method to POST (already set).
-                3. Remove/adjust the preventDefault() demo handler in script.js so the form submits
-                   normally to that service, or follow their JS snippet instead.
-              Full instructions are in the deployment guide provided alongside these files.
-            -->
-            <div class="form-row">
+          <form class="quote-form" id="quote-form" action="https://formspree.io/f/mnpqkznj" method="POST">            <div class="form-row">
               <div class="form-field">
                 <label for="name">Full name <span class="req">*</span></label>
                 <input type="text" id="name" name="name" required autocomplete="name">

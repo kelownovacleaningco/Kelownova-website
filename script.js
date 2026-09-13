@@ -64,10 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---------- Quote form handling ----------
-     This is a front-end-only placeholder handler. It validates the
-     form and shows a confirmation message, but does NOT send the
-     data anywhere. See the comment in contact.html for how to wire
-     this up to a free form backend (e.g. Formspree or Web3Forms). */
+     Submits to Formspree via fetch so the visitor stays on this page
+     and sees a confirmation message here instead of being redirected
+     to a generic Formspree page. */
   var quoteForm = document.getElementById('quote-form');
   var formStatus = document.getElementById('form-status');
 
@@ -80,11 +79,40 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      formStatus.textContent = 'Thanks! Your request has been received. This demo form does not yet send data anywhere — connect it to a free form service to start receiving real submissions (see the note in the page source).';
-      formStatus.className = 'form-status visible success';
-      quoteForm.reset();
-      formStatus.focus && formStatus.setAttribute('tabindex', '-1');
-      formStatus.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+      var submitBtn = quoteForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            formStatus.textContent = "Thanks! Your quote request has been sent. We'll get back to you as soon as we can.";
+            formStatus.className = 'form-status visible success';
+            quoteForm.reset();
+          } else {
+            formStatus.textContent = 'Sorry, something went wrong sending your request. Please try again, or email us directly.';
+            formStatus.className = 'form-status visible error';
+          }
+        })
+        .catch(function () {
+          formStatus.textContent = 'Sorry, something went wrong sending your request. Please try again, or email us directly.';
+          formStatus.className = 'form-status visible error';
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request My Free Quote';
+          }
+          formStatus.setAttribute('tabindex', '-1');
+          formStatus.focus();
+          formStatus.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+        });
     });
   }
 

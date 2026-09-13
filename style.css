@@ -413,11 +413,61 @@ summary:focus-visible {
 
 .hero-art {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.hero-art svg {
+.hero-photo-frame {
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-photo-frame img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+.hero-sparkle {
+  position: absolute;
+  top: -22px;
+  right: -22px;
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.hero-badge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  background: rgba(22, 40, 61, 0.88);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-badge span {
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .hero-photo-frame {
+    max-width: 300px;
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 900px) {

@@ -63,19 +63,19 @@ input, select, textarea {
 
 /* ---------- Tokens ---------- */
 :root {
-  --cream: #faf8f3;
+  --cream: #f7f9f9;
   --paper: #ffffff;
-  --ink: #1e2723;
-  --ink-soft: #4a544e;
-  --lake: #1f5f5b;
-  --lake-dark: #143f3c;
-  --lake-tint: #e7f0ee;
-  --gold: #c98a3e;
-  --gold-dark: #a86f2c;
-  --gold-tint: #f7ecd9;
-  --sage: #e8ece3;
-  --line: #ddd8ca;
-  --shadow: 0 20px 40px -24px rgba(20, 34, 30, 0.35);
+  --ink: #16283d;
+  --ink-soft: #4d5a68;
+  --lake: #2f7a74;
+  --lake-dark: #16324f;
+  --lake-tint: #e8f4f3;
+  --gold: #4ba7a2;
+  --gold-dark: #377f7b;
+  --gold-tint: #eaf5f4;
+  --sage: #edf4f3;
+  --line: #dbe3e3;
+  --shadow: 0 20px 40px -24px rgba(15, 30, 45, 0.35);
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -180,11 +180,12 @@ summary:focus-visible {
 
 .btn-primary {
   background: var(--gold);
-  color: #26170a;
+  color: var(--ink);
 }
 
 .btn-primary:hover {
   background: var(--gold-dark);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -234,14 +235,17 @@ summary:focus-visible {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-size: 1.28rem;
-  color: var(--lake-dark);
-  font-weight: 600;
 }
 
-.brand svg { flex-shrink: 0; }
+.logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 480px) {
+  .logo-img { height: 40px; }
+}
 
 .nav-links {
   display: flex;
